@@ -1,0 +1,105 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  position: relative;
+  --md-elevation-level: 1;
+}
+
+.card {
+  position: relative;
+  --md-elevation-level: 2;
+  border-radius: 6px;
+  width: 500px;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 32px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, min-content);
+  row-gap: 24px;
+
+  grid-template-areas:
+    "title title"
+    "email email"
+    "password password"
+    "remember-me forgot-password"
+    "actions actions";
+}
+
+.title {
+  grid-area: title;
+  text-align: center;
+}
+.email {
+  grid-area: email;
+}
+.password {
+  grid-area: password;
+}
+.remember-me {
+  grid-area: remember-me;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 18px;
+
+  md-checkbox {
+    margin: 0 -14px;
+  }
+}
+.forgot-password {
+  grid-area: forgot-password;
+  margin: auto 0;
+  text-align: end;
+}
+.sign-in {
+  grid-area: sign-in;
+}
+.actions {
+  grid-area: actions;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, min-content);
+  grid-template-areas:
+    "sign-in"
+    "divider"
+    "register";
+  row-gap: 12px;
+  background-color: inherit;
+
+  .register {
+    grid-area: register;
+  }
+
+  .divider {
+    grid-area: divider;
+    position: relative;
+    display: block;
+    height: 16px;
+    background-color: inherit;
+
+    md-divider {
+      position: absolute;
+      top: 8px;
+      left: 20%;
+      width: 60%;
+    }
+
+    p {
+      position: absolute;
+      padding: 0 8px;
+      text-align: center;
+      left: calc(50% - 16px);
+      background-color: inherit;
+    }
+  }
+}
